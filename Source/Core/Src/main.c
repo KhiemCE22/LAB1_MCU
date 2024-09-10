@@ -86,7 +86,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  init_exercise1();
+  init_exercise2();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -94,9 +94,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  run_exercise1();
+	  run_exercise2();
 	  HAL_Delay(1000);
-    /* USER CODE BEGIN 3 */
+	/* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -149,10 +149,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RED_LED_Pin|YELOW_LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, RED_LED_Pin|YELOW_LED_Pin|GREEN_LED_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : RED_LED_Pin YELOW_LED_Pin */
-  GPIO_InitStruct.Pin = RED_LED_Pin|YELOW_LED_Pin;
+  /*Configure GPIO pins : RED_LED_Pin YELOW_LED_Pin GREEN_LED_Pin */
+  GPIO_InitStruct.Pin = RED_LED_Pin|YELOW_LED_Pin|GREEN_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
