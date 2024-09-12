@@ -9,10 +9,9 @@
 #define INC_EXERCISE_H_
 
 #include "main.h"
-void init_exercise1();
-void run_exercise1();
 
-void init_exercise2();
-void run_exercise2();
+
+void init_exercise3();
+void run_exercise3();
 
 #endif /* INC_EXERCISE_H_ */
