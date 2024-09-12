@@ -7,8 +7,8 @@
 #include "exercise.h"
 
 #define RED 0
-#define YELOW 1
-#define GREEN 2
+#define GREEN 1
+#define YELOW 2
 
 int counter;
 int status_led;
@@ -37,26 +37,28 @@ void run_exercise2(){
 	switch (status_led) {
 		case RED:
 			if (counter >=5 ){
+				status_led = GREEN;
+				counter = 0;
+				HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET);
+			}
+			break;
+		case GREEN:
+			if (counter >= 3){
 				status_led = YELOW;
 				counter = 0;
 				HAL_GPIO_WritePin(YELOW_LED_GPIO_Port, YELOW_LED_Pin, GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_SET);
 			}
 			break;
 		case YELOW:
 			if (counter >= 2){
-				status_led = GREEN;
-				counter = 0;
-				HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(YELOW_LED_GPIO_Port, YELOW_LED_Pin, GPIO_PIN_SET);
-			}
-		case GREEN:
-			if (counter >= 3){
 				status_led = RED;
 				counter = 0;
 				HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(YELOW_LED_GPIO_Port, YELOW_LED_Pin, GPIO_PIN_SET);
 			}
+			break;
 		default:
 			break;
 	}
