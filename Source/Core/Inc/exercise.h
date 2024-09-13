@@ -11,7 +11,7 @@
 #include "main.h"
 
 
-void init_exercise3();
-void run_exercise3();
+void init_exercise6();
+void run_exercise6();
 
 #endif /* INC_EXERCISE_H_ */
