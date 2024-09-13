@@ -13,5 +13,9 @@
 
 void init_exercise6();
 void run_exercise6();
+void run_exercise7();
+
+void clearAllClock();
+
 
 #endif /* INC_EXERCISE_H_ */
