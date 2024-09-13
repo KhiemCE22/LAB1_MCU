@@ -72,9 +72,95 @@ void init_exercise3(){
 	status_y = RED;
 }
 
+
+
 void run_exercise3(){
 	control_1_Light(&counter_x, &status_x, 0);
 	control_1_Light(&counter_y, &status_y, 1);
 	counter_x++;
 	counter_y++;
+}
+
+void display7SEG(int num){
+
+	GPIO_TypeDef* GPIO_Port[7] = {SEG_0_GPIO_Port,
+								  SEG_1_GPIO_Port,
+								  SEG_2_GPIO_Port,
+								  SEG_3_GPIO_Port,
+								  SEG_4_GPIO_Port,
+								  SEG_5_GPIO_Port,
+								  SEG_6_GPIO_Port};
+	uint16_t GPIO_Pin[7] = {SEG_0_Pin, SEG_1_Pin, SEG_2_Pin, SEG_3_Pin, SEG_4_Pin, SEG_5_Pin, SEG_6_Pin};
+	// Turn off all segments
+	for (int i = 0; i < 7; i++){
+		HAL_GPIO_WritePin(GPIO_Port[i], GPIO_Pin[i], SET);
+	}
+	// Turn on specific segments based on the number
+	switch (num) {
+		case 0:
+			for (int i = 0; i < 6; i++){
+				HAL_GPIO_WritePin(GPIO_Port[i], GPIO_Pin[i], RESET);
+			}
+			break;
+		case 1: // SEG_1. SEG_2
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			break;
+		case 2: // SEG_0, SEG_1, SEG_3, SEG_4, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[3], GPIO_Pin[3], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[4], GPIO_Pin[4], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		case 3: //SEG_0, SEG_1, SEG_2, SEG_3, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[3], GPIO_Pin[3], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		case 4: // SEG_1, SEG_2, SEG_5, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[5], GPIO_Pin[5], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		case 5: //SEG_0, SEG_2, SEG_3, SEG_5, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[3], GPIO_Pin[3], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[5], GPIO_Pin[5], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		case 6: //SEG_0, SEG_2, SEG_3, SEG_4, SEG_5, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[3], GPIO_Pin[3], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[4], GPIO_Pin[4], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[5], GPIO_Pin[5], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		case 7: //SEG_0. SEG_1, SEG_2
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			break;
+		case 8: // all segments
+			for (int i = 0; i < 7; i++){
+				HAL_GPIO_WritePin(GPIO_Port[i], GPIO_Pin[i], RESET);
+			}
+			break;
+		case 9: //SEG_0, SEG_1, SEG_2, SEG_3, SEG_5, SEG_6
+			HAL_GPIO_WritePin(GPIO_Port[0], GPIO_Pin[0], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[1], GPIO_Pin[1], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[2], GPIO_Pin[2], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[3], GPIO_Pin[3], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[5], GPIO_Pin[5], RESET);
+			HAL_GPIO_WritePin(GPIO_Port[6], GPIO_Pin[6], RESET);
+			break;
+		default:
+			break;
+	}
+
 }
