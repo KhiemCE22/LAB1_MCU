@@ -36,3 +36,21 @@ void run_exercise7(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN[counter], SET);
 	counter++;
 }
+
+void setNumberOnClock(int num){
+	if (num > 0 && num < 12)
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN[num - 1], SET);
+
+	else if (num == 0)
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN[11], SET);
+
+}
+
+void run_exercise8(){
+	if (counter >= 12){
+		counter = 0;
+		clearAllClock();
+	}
+	setNumberOnClock(counter);
+	counter++;
+}

@@ -14,8 +14,9 @@
 void init_exercise6();
 void run_exercise6();
 void run_exercise7();
+void run_exercise8();
 
 void clearAllClock();
-
+void setNumberOnClock(int num);
 
 #endif /* INC_EXERCISE_H_ */
