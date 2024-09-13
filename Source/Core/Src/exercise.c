@@ -164,3 +164,12 @@ void display7SEG(int num){
 	}
 
 }
+
+void run_exercise4(){
+	control_1_Light(&counter_x, &status_x, 0);
+	// just display 1 7-segment led for demo
+	display7SEG(counter_x);
+	control_1_Light(&counter_y, &status_y, 1);
+	counter_x++;
+	counter_y++;
+}

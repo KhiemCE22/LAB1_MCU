@@ -86,7 +86,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  int counter = 0;
+  // use init in exercise 3
+  init_exercise3();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -94,8 +95,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if (counter >= 10) counter = 0;
-	  display7SEG(counter++);
+	  run_exercise4();
 	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }

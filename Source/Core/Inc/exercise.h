@@ -14,6 +14,8 @@
 void init_exercise3();
 void run_exercise3();
 
+
 void display7SEG(int num);
+void run_exercise4();
 
 #endif /* INC_EXERCISE_H_ */
