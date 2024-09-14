@@ -1,6 +1,9 @@
-exercise.c:14:6:init_exercise6	4	static
-exercise.c:17:6:run_exercise6	8	static
-exercise.c:25:6:clearAllClock	16	static
-exercise.c:31:6:run_exercise7	8	static
-exercise.c:40:6:setNumberOnClock	16	static
-exercise.c:49:6:run_exercise8	8	static
+exercise.c:15:6:clearAllClock	16	static
+exercise.c:20:6:setNumberOnClock	16	static
+exercise.c:28:6:clearNumberOnClock	16	static
+exercise.c:36:6:init_exercise6	4	static
+exercise.c:39:6:run_exercise6	8	static
+exercise.c:48:6:run_exercise7	8	static
+exercise.c:58:6:run_exercise8	8	static
+exercise.c:68:6:init_exercise9	16	static
+exercise.c:74:6:run_exercise9	8	static
