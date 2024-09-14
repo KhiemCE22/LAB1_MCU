@@ -10,7 +10,10 @@ int counter;
 uint16_t GPIO_PIN [12] = {LED_1_Pin, LED_2_Pin,  LED_3_Pin, LED_4_Pin,  LED_5_Pin, LED_6_Pin,
 						 LED_7_Pin, LED_8_Pin, LED_9_Pin, LED_10_Pin, LED_11_Pin, LED_12_Pin};
 
-
+int counter_sec;
+int counter_min;
+int counter_hr;
+int sec , min , hr;
 
 void clearAllClock(){
 	  for (int i = 0; i < 12; i++){
@@ -77,4 +80,40 @@ void run_exercise9(){
 	}
 	clearNumberOnClock(counter);
 	counter++;
+}
+
+void init_exercise10(){
+	counter_sec = counter_min = counter_hr = 0;
+	sec = min = hr = 0;
+}
+void run_exercise10(){
+	if (counter_sec == 60){
+		counter_sec = 0;
+		counter_min++;
+	}
+
+	if (counter_min == 60){
+		counter_min = 0;
+		counter_hr++;
+	}
+	if (counter_hr == 12){
+		counter_hr = 0;
+	}
+	  /*set LED second*/
+
+	clearNumberOnClock(sec);
+	sec = counter_sec / 5;
+	setNumberOnClock(sec);
+
+	  /*set LED minute*/
+	clearNumberOnClock(min);
+	min = counter_min / 5;
+	setNumberOnClock(min);
+
+	  /*set LED hour*/
+	clearNumberOnClock(hr);
+	hr = counter_hr;
+	setNumberOnClock(hr);
+
+	counter_sec++;
 }

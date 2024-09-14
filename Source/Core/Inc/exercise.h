@@ -13,10 +13,12 @@
 
 void init_exercise6();
 void init_exercise9();
+void init_exercise10();
 void run_exercise6();
 void run_exercise7();
 void run_exercise8();
 void run_exercise9();
+void run_exercise10();
 
 void clearAllClock();
 void setNumberOnClock(int num);
