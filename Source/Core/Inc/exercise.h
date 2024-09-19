@@ -15,7 +15,7 @@ void init_exercise3();
 void run_exercise3();
 
 
-void display7SEG(int num);
-void run_exercise4();
+void display7SEG(int num, int order);
+void run_exercise5();
 
 #endif /* INC_EXERCISE_H_ */
